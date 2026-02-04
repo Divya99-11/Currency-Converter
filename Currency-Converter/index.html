@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <div class="converter-card">
+      <h1>💱 Currency Converter</h1>
+      <p class="description">Convert currencies instantly using live exchange rates.</p>
 
-<div class="converter">
-    <h1>Currency Converter</h1>
-    <p class="description">
-        Convert currencies using real-time exchange rates.
-    </p>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" placeholder="Enter amount" min="0">
+      </div>
 
-    <label>Amount</label>
-    <input type="number" id="amount" placeholder="Enter amount">
-
-    <div class="currency-group">
-        <div>
-            <label>From</label>
-            <select id="fromCurrency">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="INR">INR</option>
-                <option value="GBP">GBP</option>
-                <option value="JPY">JPY</option>
-            </select>
+      <div class="currency-selection">
+        <div class="form-group">
+          <label for="fromCurrency">From</label>
+          <select id="fromCurrency">
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+          </select>
         </div>
 
-        <div>
-            <label>To</label>
-            <select id="toCurrency">
-                <option value="INR">INR</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="JPY">JPY</option>
-            </select>
+        <div class="form-group">
+          <label for="toCurrency">To</label>
+          <select id="toCurrency">
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+          </select>
         </div>
+      </div>
+
+      <button id="convertBtn">Convert</button>
+
+      <div id="result" class="result"></div>
     </div>
+  </div>
 
-    <button onclick="convertCurrency()">Convert</button>
-
-    <div class="result" id="result"></div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+

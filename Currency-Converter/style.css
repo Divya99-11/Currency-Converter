@@ -1,81 +1,146 @@
+/* Reset */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Body background */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg, #d9e2f3, #f0f4f8); /* soft blue-gray gradient */
 }
 
-.converter {
-    background: #fff;
-    padding: 30px;
-    width: 360px;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+/* Container */
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
 }
 
+/* Converter Card */
+.converter-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #d1dbe6;
+}
+
+/* Heading */
 h1 {
-    text-align: center;
-    margin-bottom: 5px;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #2c3e50; /* dark navy */
 }
 
+/* Description */
 .description {
-    text-align: center;
     font-size: 14px;
-    color: #666;
+    color: #7f8c8d; /* muted gray */
+    margin-bottom: 25px;
+}
+
+/* Form Groups */
+.form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 label {
-    font-size: 14px;
-    margin-top: 10px;
     display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #34495e; /* dark gray-blue */
 }
 
+/* Inputs and Select */
 input, select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 12px 15px;
     font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 1px solid #bdc3c7;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    color: #2c3e50;
 }
 
-.currency-group {
+input:focus, select:focus {
+    border-color: #2980b9; /* deep blue */
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+}
+
+/* Currency Selection Flex */
+.currency-selection {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-.currency-group div {
+.currency-selection .form-group {
     flex: 1;
 }
 
+/* Button */
 button {
     width: 100%;
-    margin-top: 20px;
-    padding: 12px;
+    padding: 15px;
     font-size: 16px;
-    background: #667eea;
-    color: white;
+    font-weight: bold;
+    color: #ffffff;
+    background: #2980b9; /* deep blue */
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #5a6fdc;
+    background: #3498db; /* lighter blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(41, 128, 185, 0.4);
 }
 
+/* Result */
 .result {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: bold;
+    margin-top: 25px;
     font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Responsive Styling */
+@media (max-width: 480px) {
+    .converter-card {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .currency-selection {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .result {
+        font-size: 16px;
+    }
 }

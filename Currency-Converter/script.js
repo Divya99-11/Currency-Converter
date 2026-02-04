@@ -1,29 +1,39 @@
+const amountInput = document.getElementById("amount");
+const fromCurrency = document.getElementById("fromCurrency");
+const toCurrency = document.getElementById("toCurrency");
+const resultDiv = document.getElementById("result");
+const convertBtn = document.getElementById("convertBtn");
+
+// Event listener
+convertBtn.addEventListener("click", convertCurrency);
+
 async function convertCurrency() {
-    const amount = document.getElementById("amount").value;
-    const from = document.getElementById("fromCurrency").value;
-    const to = document.getElementById("toCurrency").value;
-    const result = document.getElementById("result");
+    const amount = parseFloat(amountInput.value);
 
     if (!amount || amount <= 0) {
-        result.innerText = "Please enter a valid amount";
+        resultDiv.textContent = "Please enter a valid amount.";
         return;
     }
+
+    const from = fromCurrency.value;
+    const to = toCurrency.value;
 
     try {
         const response = await fetch(`https://open.er-api.com/v6/latest/${from}`);
         const data = await response.json();
 
         if (data.result !== "success") {
-            result.innerText = "Failed to fetch exchange rates";
+            resultDiv.textContent = "Failed to fetch exchange rates.";
             return;
         }
 
         const rate = data.rates[to];
-        const converted = (amount * rate).toFixed(2);
+        const convertedAmount = (amount * rate).toFixed(2);
 
-        result.innerText = `${amount} ${from} = ${converted} ${to}`;
+        resultDiv.textContent = `${amount} ${from} = ${convertedAmount} ${to}`;
     } catch (error) {
-        result.innerText = "Network error. Please try again.";
+        resultDiv.textContent = "Network error. Please try again.";
     }
 }
+
 
